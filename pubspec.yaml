@@ -1,0 +1,22 @@
+name: mbot_patrol_frontend
+description: mBot university patrol robot; frontend app
+
+version: 1.0.0
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^0.1.2
+  flutter_bluetooth_serial: ^0.2.2 # For Arduino BLE communication
+  buffer: ^1.0.6 # For the transcoder's buffer
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
