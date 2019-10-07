@@ -13,6 +13,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   flutter_bluetooth_serial: ^0.2.2 # For Arduino BLE communication
   buffer: ^1.0.6 # For the transcoder's buffer
+  control_pad: ^1.0.0+2 # For the RC mode
 
 dev_dependencies:
   flutter_test:

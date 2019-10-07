@@ -50,6 +50,9 @@ class SerialStreamTranscoder {
           case 2:
             _expectedType = SerialPacketType.Command;
             break;
+          case 3:
+            _expectedType = SerialPacketType.Face;
+            break;
           default:
             _expectedType = SerialPacketType.Unknown;
         }
@@ -91,6 +94,9 @@ class SerialStreamTranscoder {
         break;
       case SerialPacketType.Command:
         header[0] = 2;
+        break;
+      case SerialPacketType.Face:
+        header[0] = 3;
         break;
       default:
         throw ArgumentError('Unknown packet type: $type');

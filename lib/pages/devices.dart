@@ -6,6 +6,7 @@ import '../utils/bluetooth_manager.dart';
 import '../utils/bluetooth_device_wrapper.dart';
 import '../widgets/list_header.dart';
 import '../widgets/bluetooth_device_item.dart';
+import '../widgets/ok_popup.dart';
 
 class DevicesPage extends StatefulWidget {
   @override
@@ -22,12 +23,16 @@ class _DevicesPageState extends State<DevicesPage> {
       discovering = true;
       BluetoothManager.startDiscovery(_addDevice, () => setState(() {
         discovering = false;
-      }));
+      }), (String message) => NavigationManager.alert(
+        OkPopup('Failed to start discovery', message)
+      ));
     });
   }
 
   Future<void> _stopDiscovery() async {
-    await BluetoothManager.stopDiscovery();
+    await BluetoothManager.stopDiscovery((String message) => NavigationManager.alert(
+      OkPopup('Failed to stop discovery', message)
+    ));
   }
 
   void _addDevice(BluetoothDeviceWrapper device) {

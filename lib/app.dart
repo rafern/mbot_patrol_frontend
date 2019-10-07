@@ -1,8 +1,15 @@
+import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
+
 import 'common.dart';
 import 'pages/all.dart';
 import 'utils/navigation_manager.dart';
 
-class FrontendApp extends StatelessWidget {
+class FrontendApp extends StatefulWidget {
+  @override
+  _FrontendAppState createState() => _FrontendAppState();
+}
+
+class _FrontendAppState extends State<FrontendApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,5 +24,11 @@ class FrontendApp extends StatelessWidget {
         '/tester': (context) => SerialTesterPage(ModalRoute.of(context).settings.arguments),
       },
     );
+  }
+
+  @override
+  void dispose() {
+    FlutterBluetoothSerial.instance.setPairingRequestHandler(null);
+    super.dispose();
   }
 }
